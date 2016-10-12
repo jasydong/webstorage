@@ -42,7 +42,7 @@ var webStorage = (function () {
 			try { 
 				localStorage.setItem(key, JSON.stringify(value)); 
 			} catch (e) {
-				return croak(e);
+				return false;
 			}
 			return true;
 		}
@@ -59,7 +59,6 @@ var webStorage = (function () {
 				var value = localStorage.getItem(key);
 				return value && JSON.parse(value);
 			} catch (e) {
-				croak(e);
 				return null;
 			}
 		}
