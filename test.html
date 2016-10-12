@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>webStorage Test Page</title>
+</head>
+<body>
+	<script src='webstorage.js'></script>
+	<script>
+		// test code
+        webStorage.set('foo', 'bar');
+        testit('webStorage.set()', (localStorage.length==1));
+
+        webStorage.remove('foo');
+        testit('webStorage.remove()', (localStorage.length==0));
+
+        webStorage.set('key01', 'value01');
+        webStorage.set('key02', 'value02');
+        testit('webStorage.length()', (webStorage.length()==2));
+
+        webStorage.clear('foo');
+        testit('webStorage.clear()', (localStorage.length==0));
+
+        function testit(method, flag) {
+            if (flag) {
+                console.info(method + ' test success!');
+            } else {
+                console.error(method + ' test failed!');
+            }
+        }
+	</script>
+</body>
+</html>
